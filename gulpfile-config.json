@@ -1,0 +1,40 @@
+{
+    "dir": {
+        "resources": "resources",
+        "assets": {
+            "css": "resources/css",
+            "js": "resources/js"
+        },
+        "public": "public",
+        "compile": {
+            "css": "public/css",
+            "js": "public/js"
+        },
+        "production": "public/build",
+        "prod": {
+            "css": "public/build/css",
+            "js": "public/build/js"
+        },
+        "tmp": "public/tmp"
+    },
+
+    "vendor_files": {
+        "js": [
+            "bower_components/jquery/dist/jquery.min.js",
+            "bower_components/bootstrap/dist/js/bootstrap.min.js",
+            "bower_components/requirejs/require.js"
+        ],
+        "css": [
+            "bower_components/bootstrap/dist/css/bootstrap.min.css"
+        ]
+    },
+
+    "app_files": {
+        "js": [
+            "resources/js/**/*"
+        ],
+        "css": [
+            "resources/css/**/*"
+        ]
+    }
+}

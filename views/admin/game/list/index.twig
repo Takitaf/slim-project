@@ -1,0 +1,15 @@
+{% extends("layout.twig") %}
+
+{% block body %}
+    Hello Dawidek!
+{% endblock %}
+
+{% block scripts %}
+<script>
+    require(["/js/require.config"], function () {
+        require(["views/admin/game/list/js/initialize"], function (Initializer) {
+            Initializer.start();
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{
+  "name": "slim-skeleton",
+  "version": "1.0.0",
+  "author": "Dawid Warmuz",
+  "license": "Dawid Warmuz",
+  "private": true,
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "del": "^2.2.2",
+    "ejs": "^2.5.5",
+    "eslint": "^3.2.2",
+    "gulp": "^3.8.8",
+    "gulp-debug": "^2.1.2",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-replace-path": "^0.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.10",
+    "gulp-ejs-compile": "^0.1.0"
+  },
+  "engines": {
+    "node": ">= 0.12.0",
+    "npm": ">=2.1.5"
+  },
+  "dependencies": {
+  }
+}
