@@ -8,7 +8,8 @@
         "public": "public",
         "compile": {
             "css": "public/css",
-            "js": "public/js"
+            "js": "public/js",
+            "fonts": "public/fonts"
         },
         "production": "public/build",
         "prod": {
@@ -22,10 +23,24 @@
         "js": [
             "bower_components/jquery/dist/jquery.min.js",
             "bower_components/bootstrap/dist/js/bootstrap.min.js",
-            "bower_components/requirejs/require.js"
+            "bower_components/requirejs/require.js",
+            "bower_components/domReady/domReady.js",
+            "bower_components/moment/min/moment.min.js",
+            "bower_components/underscore/underscore-min.js",
+            "bower_components/datatables/media/js/dataTables.bootstrap.min.js",
+            "bower_components/datatables/media/js/jquery.dataTables.min.js",
+            "bower_components/dropzone/dist/min/dropzone-amd-module.min.js"
         ],
         "css": [
-            "bower_components/bootstrap/dist/css/bootstrap.min.css"
+            "bower_components/bootstrap/dist/css/bootstrap.min.css",
+            "bower_components/dropzone/dist/min/dropzone.min.css",
+            "bower_components/datatables/media/css/dataTables.bootstrap.min.css"
+        ],
+        "fonts": [
+            "bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot",
+            "bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+            "bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff",
+            "bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2"
         ]
     },
 

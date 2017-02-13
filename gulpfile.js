@@ -6,12 +6,18 @@ var gulp = require("gulp"),
     template = require("gulp-ejs-compile");
 
 // Clean directories
-gulp.task("clean", function () {
-    return del([
-        "public/js/*",
-        "public/css/*",
-        "views/**/templates/*.jst"
-    ]);
+gulp.task("clean", ["clean_styles", "clean_scripts", "clean_templates"], function (cb) {
+    cb();
+});
+
+gulp.task("clean_styles", function () {
+    return del(["public/css/*"]);
+});
+gulp.task("clean_scripts", function () {
+    return del(["public/js"]);
+});
+gulp.task("clean_templates", function () {
+    return del(["views/**/templates/*.jst"]);
 });
 
 // Build task
@@ -34,15 +40,18 @@ gulp.task("styles", function () {
         .pipe(gulp.dest(config.dir.compile.css));
 
     gulp.src(config.vendor_files.css)
-        .pipe(gulp.dest(config.dir.compile.css + "/vendor"));
+        .pipe(gulp.dest(config.dir.compile.css));
+
+    gulp.src(config.vendor_files.fonts)
+        .pipe(gulp.dest(config.dir.compile.fonts));
 });
 
-gulp.task("templates", ["clean"], function () {
+gulp.task("templates", function () {
     gulp.src("views/**/*.ejs")
         .pipe(template({
             name: ""
         }))
-        .pipe(extReplace(".jst"))
+        .pipe(extReplace(".jst.js"))
         .pipe(rename(function (path) {
             path.dirname = path.dirname.replace(/precompiled_templates/, "templates");
             return path;
@@ -52,11 +61,10 @@ gulp.task("templates", ["clean"], function () {
         }));
 });
 
-gulp.task("watch", function () {
-    gulp.start("build");
-    gulp.watch(config.app_files.css, ["clean", "styles"]);
-    gulp.watch(config.app_files.js, ["clean", "scripts"]);
-    gulp.watch("views/**/precompiled_templates/*", ["clean", "templates"]);
+gulp.task("watch", ["build"], function () {
+    gulp.watch(config.app_files.css, ["styles"]);
+    gulp.watch(config.app_files.js, ["scripts"]);
+    gulp.watch("views/**/precompiled_templates/*", ["templates"]);
 });
 
 // Default Task

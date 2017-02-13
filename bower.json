@@ -1,17 +1,18 @@
 {
-    "name": "slim-skeleton",
-    "version": "1.0.0",
-    "description": "",
-    "dependencies": {},
-    "ignore": [
-        "node_modules",
-        "bower_components"
-    ],
-    "debugging": true,
-    "devDependencies": {
-        "underscore": "~1.8.3",
-        "requirejs": "~2.3.2",
-        "jquery": "~3.1.1",
-        "bootstrap": "~3.3.7"
-    }
+  "name": "slim-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+  },
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "debugging": true,
+  "devDependencies": {
+    "underscore": "~1.8.3",
+    "requirejs": "~2.3.2",
+    "jquery": "~3.1.1",
+    "bootstrap": "~3.3.7"
+  }
 }
