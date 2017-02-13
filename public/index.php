@@ -10,20 +10,27 @@ if (PHP_SAPI == 'cli-server') {
 }
 
 require __DIR__ . '/../vendor/autoload.php';
-session_start();
 
-// Instantiate the app
-$settings = require __DIR__ . '/../app/settings.php';
-$app = new \Slim\App($settings);
+use SlimFacades\Facade;
+use SlimFacades\Route;
+use SlimFacades\App;
+$app = new Core\App();
+Facade::setFacadeApplication($app);
 
-// Set up dependencies
-require __DIR__ . '/../app/dependencies.php';
+require __DIR__ . '/../bootstrap/middleware.php';
+require __DIR__ . '/../bootstrap/routes.php';
 
-// Register middleware
-require __DIR__ . '/../app/middleware.php';
 
-// Register routes
-require __DIR__ . '/../app/routes.php';
+/*
+    This is the "unique magic" of our Slim 3 Skeleton. We use our very own Response class (Core\Response\Response) which
+    allows us to render view AFTER all Middlewares. In fact, it happens in the last Middleware (under this comment).
 
-// Run app
-$app->run();
+    WARNING! IT MUST BE THE LAST LINE BEFORE APPLICATION RUN.
+
+    It ensures us that all other middlewares happen before that particular one, which render Twig template. It makes it
+    a lot easier to extend our template scope in Middlewares (we can e.g. add logged user data to every template in a
+    new LoggedProvider)
+*/
+\SlimFacades\App::self()->add(\SlimFacades\Container::self()->get("\Middleware\ViewRenderer"));
+
+App::run();
